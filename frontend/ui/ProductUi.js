@@ -8,6 +8,7 @@ export const ProductUi = styled.div`
     padding: 1.5rem;
     img{
         width: 100%;
+        curson: pointer;
     }
     h2{
         padding: 0.5rem 0; 

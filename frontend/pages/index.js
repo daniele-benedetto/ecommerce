@@ -1,13 +1,8 @@
 import Head from 'next/head';
-
 import { useQuery } from 'urql';
-
 import Product from '../components/Product';
-
 import { PRODUCT_QUERY } from '../lib/query';
-
 import { GalleryUi } from '../ui/GalleryUi';
-
 
 export default function Home() {
     

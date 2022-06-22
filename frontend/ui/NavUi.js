@@ -17,8 +17,6 @@ export const NavItems = styled.div`
     justify-content: space-around;
     align-items: center;
     div {
-        position: relative;
-        margin-left: 3rem;
         display: flex;
         flex-direction: column;
         align-items: center;

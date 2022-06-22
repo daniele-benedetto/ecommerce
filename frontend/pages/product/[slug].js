@@ -12,7 +12,12 @@ import { useStateContext } from "../../lib/context";
 
 export default function ProductDetails(){
 
-    const { qty, incrementQty, decrementQty } = useStateContext();
+    const { 
+        qty, 
+        incrementQty, 
+        decrementQty,
+        onAdd,
+    } = useStateContext();
     
     const { query } = useRouter();
 
@@ -42,7 +47,7 @@ export default function ProductDetails(){
                     <p>{qty}</p>
                     <button onClick={incrementQty}><AiFillPlusCircle /></button>
                 </ProductQuantityUi>
-                <ProductButtonUi>Add to cart</ProductButtonUi>
+                <ProductButtonUi onClick={() => onAdd(data.products.data[0].attributes, qty)}>Add to cart</ProductButtonUi>
             </ProductInfoUi>
         </ProductContainerUi>
     )

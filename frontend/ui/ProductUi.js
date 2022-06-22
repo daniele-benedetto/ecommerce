@@ -6,9 +6,9 @@ export const ProductUi = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
+    cursor: pointer;
     img{
         width: 100%;
-        curson: pointer;
     }
     h2{
         padding: 0.5rem 0; 

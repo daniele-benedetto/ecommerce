@@ -1,5 +1,10 @@
 import '../styles/globals.css';
+
 import { createClient, Provider } from 'urql';
+
+import Nav from '../components/Nav';
+
+import { stateContext } from '../lib/context';
 
 const client = createClient({
     url: 'http://localhost:1337/graphql',
@@ -9,6 +14,7 @@ const client = createClient({
 function MyApp({ Component, pageProps }) {
     return(
         <Provider value={client}>
+            <Nav />
             <Component {...pageProps} />
         </Provider>
     )

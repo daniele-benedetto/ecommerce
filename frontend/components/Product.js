@@ -11,9 +11,9 @@ export default function Product({product}){
             <Link href={`/product/${slug}`}>
                 <div>
                     <img src={image.data.attributes.formats.small.url} alt={title} />
+                    <h2>{title}</h2>
+                    <h3>{price}</h3>
                 </div>
-                <h2>{title}</h2>
-                <h3>{price}</h3>
             </Link>
         </ProductUi>
     )

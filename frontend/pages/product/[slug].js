@@ -1,20 +1,19 @@
 import { useQuery } from "urql";
-
 import { useRouter } from 'next/router';
-
 import { GET_PRODUCT_QUERY } from '../../lib/query';
-
 import { 
     ProductContainerUi, 
     ProductInfoUi,
     ProductQuantityUi,
     ProductButtonUi,
-} from '../../ui/ProductDetailUi'
-
+} from '../../ui/ProductDetailUi';
 import { AiFillPlusCircle, AiFillMinusCircle} from 'react-icons/ai';
+import { useStateContext } from "../../lib/context";
 
 export default function ProductDetails(){
 
+    const { qty, incrementQty, decrementQty } = useStateContext();
+    
     const { query } = useRouter();
 
     const [results] = useQuery({
@@ -39,9 +38,9 @@ export default function ProductDetails(){
                 <p>{description}</p>
                 <ProductQuantityUi>
                     <span>Quantity</span>
-                    <button><AiFillMinusCircle /></button>
-                    <p>0</p>
-                    <button><AiFillPlusCircle /></button>
+                    <button onClick={decrementQty}><AiFillMinusCircle /></button>
+                    <p>{qty}</p>
+                    <button onClick={incrementQty}><AiFillPlusCircle /></button>
                 </ProductQuantityUi>
                 <ProductButtonUi>Add to cart</ProductButtonUi>
             </ProductInfoUi>

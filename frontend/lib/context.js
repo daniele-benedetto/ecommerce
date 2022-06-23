@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { NavItems } from '../ui/NavUi';
 
 const Context = createContext();
 
@@ -6,7 +7,9 @@ export const StateContext = ({ children }) => {
 
     const [qty, setQty] = useState(1);
     const [showCart, setShowCart] = useState(false);
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState([]);
+    const [totalQty, setTotalQty] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     
     const incrementQty = () => {
         setQty((prevQty) => prevQty + 1);
@@ -22,6 +25,10 @@ export const StateContext = ({ children }) => {
     }
 
     const onAdd = (product, quantity) => {
+
+        setTotalQty(prevTotal => prevTotal + quantity);
+        setTotalPrice(prevTotal => prevTotal + product.price * quantity);
+
         const exist = cartItems.find((item) => item.slug === product.slug);
 
         if(exist) {
@@ -37,6 +44,26 @@ export const StateContext = ({ children }) => {
         }
     }
 
+    const onRemove = (product) => {
+
+        setTotalQty(prevTotal => prevTotal - 1);
+        setTotalPrice(prevTotal => prevTotal - product.price);
+
+        const exist = cartItems.find((item) => item.slug === product.slug);
+
+        if(exist.quantity === 1) {
+            setCartItems(cartItems.filter((item) => item.slug !== product.slug));
+        } else {
+            setCartItems(
+                cartItems.map((item) => 
+                    item.slug === product.slug 
+                    ? {...exist, quantity: exist.quantity - 1} 
+                    : item
+                )
+            );
+        }
+    }
+
     return (
         <Context.Provider value={{ 
             qty, 
@@ -46,6 +73,9 @@ export const StateContext = ({ children }) => {
             setShowCart,
             cartItems,
             onAdd,
+            onRemove,
+            totalQty,
+            totalPrice,
         }}>
             {children}
         </Context.Provider>

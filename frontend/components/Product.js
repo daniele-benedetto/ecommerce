@@ -12,7 +12,7 @@ export default function Product({product}){
                 <div>
                     <img src={image.data.attributes.formats.small.url} alt={title} />
                     <h2>{title}</h2>
-                    <h3>{price}</h3>
+                    <h3>{price}$</h3>
                 </div>
             </Link>
         </ProductUi>

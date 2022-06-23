@@ -16,6 +16,7 @@ export const NavItems = styled.div`
     dispaly: flex;
     justify-content: space-around;
     align-items: center;
+    position:relative;
     div {
         display: flex;
         flex-direction: column;
@@ -29,4 +30,20 @@ export const NavItems = styled.div`
         }
     }
 
+`;
+
+
+export const NavTotal = styled.span`
+    background: #ff2626;
+    color: white;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    position: absolute;
+    right: -0.5rem;
+    top: -0.5rem;
 `;

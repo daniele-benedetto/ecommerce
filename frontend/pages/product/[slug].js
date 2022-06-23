@@ -33,13 +33,14 @@ export default function ProductDetails(){
     if(fetching) return <p>Loading...</p>;
     if(error) return <p>Error... {error.message}</p>;
 
-    const { title, description, image } = data.products.data[0].attributes;
+    const { title, description, price, image } = data.products.data[0].attributes;
 
     return (
         <ProductContainerUi>
             <img src={image.data.attributes.formats.medium.url} alt={title}/>
             <ProductInfoUi>
                 <h3>{title}</h3>
+                <h4>{price}$</h4>
                 <p>{description}</p>
                 <ProductQuantityUi>
                     <span>Quantity</span>

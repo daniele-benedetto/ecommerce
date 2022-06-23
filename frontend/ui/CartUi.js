@@ -29,6 +29,7 @@ export const CartCard = styled.span`
     background: white;
     padding: 2rem;
     margin: 2rem 0;
+    position:relative;
     img {
         width: 8rem;
     }
@@ -60,5 +61,35 @@ export const CartEmpty = styled.div`
 `;
 
 export const CartQuantity = styled.span`
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    button {
+        background-color: transparent;
+        border: none;
+        padding: 0.5rem;
+    }
+    p {
+        width: 1rem;
+        text-align: center;
+    }
+    span {
+        color: #494949;
+    }
+    svg {
+        color: #494949;
+    }
+`;
 
+export const CartCheckout = styled.div`
+    width: 100%;
+    padding: 0 2rem;
+    button {
+        background-color: var(--primary);
+        padding: 1rem 2rem;
+        width: 100%;
+        color: white;
+        margin: 2rem;
+        cursor: pointer;
+    }
 `;

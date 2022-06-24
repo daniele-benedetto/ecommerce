@@ -4,6 +4,8 @@ import { NavContainer, NavItems, NavTotal } from "../ui/NavUi";
 import Cart from "./Cart";
 import { useStateContext } from "../lib/context";
 
+const {AnimatePresence} = require('framer-motion');
+
 export default function Nav() {
 
     const {showCart, setShowCart, totalQty } = useStateContext();
@@ -14,11 +16,20 @@ export default function Nav() {
             </Link>
             <NavItems>
                 <div onClick={() => setShowCart(true)}>
-                    {totalQty > 0 && <NavTotal>{totalQty}</NavTotal>}
+                    {totalQty > 0 && 
+                        <NavTotal
+                            animate={{scale: 1}}
+                            initial={{scale: 0}}
+                        >
+                            {totalQty}
+                        </NavTotal>
+                    }
                     <FiShoppingBag />
                     <h3>Cart</h3>
                 </div>
-                {showCart && <Cart />}       
+                <AnimatePresence>
+                    {showCart && <Cart />}       
+                </AnimatePresence>
             </NavItems>
         </NavContainer>
     )

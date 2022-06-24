@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
-export const CartContainer = styled.span`
+const {motion} = require('framer-motion');
+
+export const CartContainer = styled(motion.section)`
     position:fixed;
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 999;
+    z-index: 100;
     display: flex;
     justify-content: flex-end;
     margin: 0;
 `;
 
-export const CartMenu = styled.div`
+export const CartMenu = styled(motion.div)`
     width: 40%;
     background-color: #f1f1f1;
     padding: 2rem 5rem;
@@ -21,7 +23,9 @@ export const CartMenu = styled.div`
     position: relative;
 `;
 
-export const CartCard = styled.span`
+export const CartCards = styled(motion.div)``;
+
+export const CartCard = styled(motion.span)`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,14 +39,13 @@ export const CartCard = styled.span`
     }
 `;
 
-export const CardInfo = styled.span`
+export const CardInfo = styled(motion.span)`
     width: 50%;
 `;
 
-export const CartEmpty = styled.div`
+export const CartEmpty = styled(motion.div)`
     position: absolute;
     top: 0;
-    left: 50%;
     transform: translate(-50%, 0);
     display: flex; 
     flex-direction: column;
@@ -60,7 +63,7 @@ export const CartEmpty = styled.div`
     }
 `;
 
-export const CartQuantity = styled.span`
+export const CartQuantity = styled(motion.span)`
     display: flex;
     align-items: center;
     margin: 1rem 0;
@@ -81,7 +84,7 @@ export const CartQuantity = styled.span`
     }
 `;
 
-export const CartCheckout = styled.div`
+export const CartCheckout = styled(motion.div)`
     width: 100%;
     padding: 0 2rem;
     button {
@@ -92,4 +95,12 @@ export const CartCheckout = styled.div`
         margin: 2rem;
         cursor: pointer;
     }
+`;
+
+export const CartClose = styled(motion.span)`
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    z-index:500;
+    cursor: pointer;
 `;

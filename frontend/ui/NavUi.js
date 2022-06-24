@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const {motion} = require('framer-motion');
+
 export const NavContainer = styled.nav`
     min-height: 15vh;
     display: flex; 
@@ -27,13 +29,17 @@ export const NavItems = styled.div`
         }
         svg{
             font-size: 1.5rem;
+            cursor: pointer;
+        }
+        p{
+            cursor: pointer;
         }
     }
 
 `;
 
 
-export const NavTotal = styled.span`
+export const NavTotal = styled(motion.span)`
     background: #ff2626;
     color: white;
     width: 1.2rem;

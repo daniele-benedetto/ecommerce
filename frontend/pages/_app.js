@@ -4,8 +4,8 @@ import Nav from '../components/Nav';
 import { StateContext, stateContext } from '../lib/context';
 
 const client = createClient({
-    url: 'http://localhost:1337/graphql',
-    //url: process.env.NEXT_PUBLIC_BACKEND_API,
+    //url: 'http://localhost:1337/graphql',
+    url: process.env.NEXT_PUBLIC_BACKEND_API,
 });
 
 function MyApp({ Component, pageProps }) {

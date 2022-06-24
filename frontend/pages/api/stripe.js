@@ -9,9 +9,11 @@ export default async function handler(req,res) {
                 submit_type: 'pay',
                 mode: 'payment',
                 payment_method_types: ['card'],
+                allow_promotion_codes: true,
                 shipping_address_collection: {
-                    allowed_countries: ['US']
+                    allowed_countries: ['US', 'IT', 'DE']
                 },
+                shipping_options: [{shipping_rate: 'shr_1LEHNcGM0kMASagv22rCgdpM'}],
                 line_items: req.body.map((item) => {
                     return {
                         price_data: {
@@ -22,10 +24,14 @@ export default async function handler(req,res) {
                             },
                             unit_amount: item.price * 100,
                         },
+                        adjustable_quantity: {
+                            enabled: true,
+                            minimum: 1
+                        },
                         quantity: item.quantity,
                     };
                 }),
-                success_url: `${req.headers.origin}/success`,
+                success_url: `${req.headers.origin}/success?&session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${req.headers.origin}/canceled`,
 
             });

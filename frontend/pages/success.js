@@ -32,8 +32,7 @@ export default function Success({ order }) {
         initial={{ opacity: 0, scale: 0.75 }}
       >
         <h1>Grazie per il tuo ordine!</h1>
-        <h2>Una email di conferma è stata mandata a</h2>
-        <h2>{order.customer_details.email}</h2>
+        <h2>Una email di conferma è stata mandata a {order.customer_details.email}</h2>
         <SuccessInfo>
           <SuccessAddress>
             <h3>Indirizzo</h3>

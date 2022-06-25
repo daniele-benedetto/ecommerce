@@ -15,7 +15,7 @@ export const NavContainer = styled.nav`
 `;
 
 export const NavItems = styled.div`
-    dispaly: flex;
+    display: flex!important;
     justify-content: space-around;
     align-items: center;
     position:relative;
